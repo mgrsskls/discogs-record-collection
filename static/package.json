@@ -1,0 +1,16 @@
+{
+	"author": "Michael Großklaus <mail@mgrossklaus.de> (https://www.mgrossklaus.de)",
+	"type": "module",
+	"devDependencies": {
+		"@11ty/eleventy": ">=3.0.0-beta.1",
+		"@11ty/eleventy-fetch": "^4.0.1",
+		"twig": "^1.17.1"
+	},
+	"engines": {
+		"node": "~20.12.2"
+	},
+	"scripts": {
+		"dev": "eleventy --serve",
+		"build": "eleventy"
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"main": "index.js",
+	"author": "Michael Großklaus <mail@mgrossklaus.de> (https://www.mgrossklaus.de)",
+	"type": "module",
+	"description": "Sign in to your Discogs account, get a simple overview of all your records and filter them by category",
+	"dependencies": {
+		"compression": "^1.7.4",
+		"cookie-parser": "^1.4.6",
+		"disconnect": "^1.2.2",
+		"express": "^4.21.0",
+		"twig": "^1.17.1"
+	},
+	"engines": {
+		"node": "^20.11"
+	},
+	"scripts": {
+		"start": "node ."
+	}
+}

@@ -5,8 +5,8 @@ import cookieParser from "cookie-parser";
 import Twig from "twig";
 import compression from "compression";
 
-import { records, login } from "./lib/render.js";
-import { getToken, callback } from "./lib/auth.js";
+import { records, login } from "../lib/render.js";
+import { getToken, callback } from "../lib/auth.js";
 
 Twig.cache(process.env.NODE_ENV == "production");
 
@@ -20,8 +20,8 @@ const tokens = {};
 
 app.set("view engine", "twig");
 app.set("twig cache", process.env.NODE_ENV == "production");
-app.set("views", path.join(import.meta.dirname, "views"));
-app.use(express.static(path.join(import.meta.dirname, "public")));
+app.set("views", path.join(import.meta.dirname, "../views"));
+app.use(express.static(path.join(import.meta.dirname, "../public")));
 app.use(cookieParser());
 app.use(compression());
 

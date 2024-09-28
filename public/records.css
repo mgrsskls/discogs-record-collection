@@ -16,11 +16,6 @@ header {
 h1 {
 	margin: 0;
 	font-size: 1rem;
-
-	span {
-		font-weight: lighter;
-		color: hsl(from var(--color-1) h s 70%);
-	}
 }
 
 fieldset {
