@@ -114,9 +114,6 @@ footer {
 
 .Record {
 	display: block;
-	position: relative;
-	overflow: hidden;
-	container-type: inline-size;
 	background: var(--color-1);
 }
 
@@ -126,55 +123,51 @@ footer {
 	border-radius: 0;
 	inline-size: 100%;
 	block-size: 100%;
-	transition: all 0.2s ease;
-
-	&[data-src] {
-		visibility: hidden;
-	}
 }
 
 .Record-title {
-	display: flex;
-	flex-direction: column;
-	justify-content: end;
-	position: absolute;
-	inset: 0;
-	padding: 1rem;
-	padding-block-start: 2rem;
-	background: linear-gradient(
-		to top,
-		hsla(203, 41%, 10%, 90%),
-		hsla(203, 41%, 10%, 50%) 30%,
-		hsla(203, 41%, 10%, 0%) 60%
-	);
-	color: var(--color-2);
-	transition: all 0.2s ease;
+	display: none;
 }
 
-.Record:not(:has([data-src])) {
+@media (hover: hover) {
+	.Record {
+		position: relative;
+		overflow: hidden;
+		container-type: inline-size;
+	}
+
+	.Record-image {
+		transition: all 0.2s ease;
+	}
+
 	.Record-title {
+		display: flex;
+		flex-direction: column;
+		justify-content: end;
+		position: absolute;
+		inset: 0;
+		padding: 1rem;
+		color: var(--color-2);
+		transition: all 0.2s ease;
 		opacity: 0;
 		transform: translateY(0.25rem);
 	}
 
-	&:hover .Record-title {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
+	.Record:hover {
+		.Record-title {
+			opacity: 1;
+			transform: translateY(0);
+			background-color: hsla(203, 41%, 10%, 75%);
+		}
 
-.Record:hover {
-	.Record-title {
-		background-color: hsla(203, 41%, 10%, 75%);
+		.Record-image {
+			scale: 1.1;
+		}
 	}
 
-	.Record-image {
-		scale: 1.1;
-	}
-}
-
-@supports (padding: 8cqw) {
-	.Record-title {
-		padding: 8cqw;
+	@supports (padding: 8cqw) {
+		.Record-title {
+			padding: 8cqw;
+		}
 	}
 }
