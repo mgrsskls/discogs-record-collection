@@ -1,0 +1,85 @@
+{% embed "layout.twig" %}
+	{% block head %}
+		<link rel="stylesheet" href="records.css">
+	{% endblock %}
+	{% block content %}
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const records = document.querySelectorAll(".Records-item");
+				const checked = document.querySelector(":checked");
+
+				if (checked) {
+					renderGenre(checked.value);
+				}
+
+				document.querySelectorAll("input").forEach(input => {
+					input.addEventListener("change", ({ target }) => {
+						renderGenre(target.value);
+					});
+				});
+
+				function renderGenre(genre) {
+					if (genre) {
+						for (record of records) {
+							record.hidden = !record.dataset.genre.split("|").includes(genre);
+						}
+					} else {
+						for (record of records) {
+							record.hidden = false;
+						}
+					}
+				}
+			});
+		</script>
+
+		<header>
+			<h1>{{ records|length }} records <span>&middot; <a href="https://www.discogs.com/de/user/{{ username }}">{{ username }}</a></span></h1>
+			{% if genres is not empty %}
+				<form hidden>
+					<fieldset>
+						<legend>Genre</legend>
+						<div class="Genres">
+							<label>
+								<input type="radio" name="genre" value="" checked>
+								All
+							</label>
+							{% for genre in genres %}
+								<label>
+									<input type="radio" name="genre" value="{{ genre }}">
+									{{ genre }}
+								</label>
+							{% endfor %}
+						</div>
+					</fieldset>
+				</form>
+				<script>
+					document.querySelector("form").hidden = false;
+				</script>
+			{% endif %}
+		</header>
+		<main class="Records">
+			<ol class="Records-list">
+				{% for record in records %}
+					<li class="Records-item" data-genre="{{ record.genres|join("|") }}">
+						<a class="Record" href="https://www.discogs.com/release/{{ record.id }}">
+							{% set title %}
+								{{ record.artists[0].name }}: {{ record.title }}
+							{% endset %}
+							<img class="Record-image" src="{{ record.thumb }}" alt="Album cover of {{ title | escape }}" width="150" height="150" loading="lazy">
+							<span class="Record-title">
+								<b>{{ record.title }}</b>
+								<span class="Record-artist">
+									{{ record.artist_names }}
+								</span>
+							</span>
+						</a>
+					</li>
+				{% endfor %}
+			</ol>
+		</main>
+		<footer>
+			<p>Built by <a href="https://www.mgrossklaus.de">Michael Großklaus</a></p>
+			<small>Data provided by Discogs. This application uses Discogs’ API but is not affiliated with, sponsored or endorsed by Discogs. ‘Discogs’ is a trademark of Zink Media, LLC.</small>
+		</footer>
+	{% endblock %}
+{% endembed %}

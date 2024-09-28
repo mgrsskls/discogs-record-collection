@@ -1,0 +1,180 @@
+header {
+	background: var(--color-1);
+	border-block-end: 0.5rem solid var(--color-2);
+	color: var(--color-2);
+	padding: 0.75rem;
+	position: sticky;
+	inset-block-start: 0;
+	z-index: 1;
+	font-size: 0.875rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: space-between;
+}
+
+h1 {
+	margin: 0;
+	font-size: 1rem;
+
+	span {
+		font-weight: lighter;
+		color: hsl(from var(--color-1) h s 70%);
+	}
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+}
+
+legend {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+.Genres {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+label {
+	padding-inline: 0.5em;
+}
+
+label:has(:checked) {
+	background: var(--color-2);
+	color: hsl(203, 41%, 10%);
+	border-radius: 0.125rem;
+}
+
+label:has(:focus) {
+	outline: 0.125rem solid var(--color-3);
+	outline-offset: 0.125rem;
+}
+
+input {
+	width: 1px;
+	height: 1px;
+	opacity: 0.01;
+	position: absolute;
+}
+
+footer {
+	background: var(--color-1);
+	border-block-start: 0.5rem solid var(--color-2);
+	color: var(--color-4);
+	padding: 0.75rem;
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	p {
+		margin: 0;
+		font-weight: 600;
+		font-size: 0.875rem;
+	}
+
+	a {
+		color: var(--color-2);
+	}
+}
+
+@media (width > 80rem) {
+	footer {
+		position: sticky;
+		inset-block-end: 0;
+	}
+}
+
+.Records {
+	flex: 1;
+	background: var(--color-2);
+}
+
+.Records-list {
+	list-style: none;
+	padding-inline-start: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 9rem), 1fr));
+	gap: 0.5rem;
+	padding-inline: 0.5rem;
+	margin: 0;
+	font-size: 0.75em;
+}
+
+.Record {
+	display: block;
+	position: relative;
+	overflow: hidden;
+	container-type: inline-size;
+	background: var(--color-1);
+}
+
+.Record-image {
+	aspect-ratio: 1;
+	display: block;
+	border-radius: 0;
+	inline-size: 100%;
+	block-size: 100%;
+	transition: all 0.2s ease;
+
+	&[data-src] {
+		visibility: hidden;
+	}
+}
+
+.Record-title {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	position: absolute;
+	inset: 0;
+	padding: 1rem;
+	padding-block-start: 2rem;
+	background: linear-gradient(
+		to top,
+		hsla(203, 41%, 10%, 90%),
+		hsla(203, 41%, 10%, 50%) 30%,
+		hsla(203, 41%, 10%, 0%) 60%
+	);
+	color: var(--color-2);
+	transition: all 0.2s ease;
+}
+
+.Record:not(:has([data-src])) {
+	.Record-title {
+		opacity: 0;
+		transform: translateY(0.25rem);
+	}
+
+	&:hover .Record-title {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.Record:hover {
+	.Record-title {
+		background-color: hsla(203, 41%, 10%, 75%);
+	}
+
+	.Record-image {
+		scale: 1.1;
+	}
+}
+
+@supports (padding: 8cqw) {
+	.Record-title {
+		padding: 8cqw;
+	}
+}

@@ -1,0 +1,43 @@
+.Intro {
+	display: grid;
+	align-content: center;
+	min-block-size: 100dvh;
+	inline-size: calc(100% - 4rem);
+	max-inline-size: 28em;
+	margin-inline: auto;
+	text-align: center;
+
+	p:last-child {
+		margin-block-start: 3rem;
+
+		a {
+			color: var(--color-2);
+		}
+	}
+}
+
+.SignIn {
+	background-color: hsl(from var(--color-1) h s 25%);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin: auto;
+	margin-block-start: 2rem;
+	padding: 1rem;
+	border-radius: 0.125rem;
+	transition: background-color 0.125s ease;
+
+	&:hover {
+		background-color: hsl(from var(--color-1) h s 35%);
+	}
+
+	svg {
+		display: block;
+		inline-size: 8em;
+	}
+}
+
+p {
+	color: var(--color-4);
+}
