@@ -1,7 +1,7 @@
 body {
 	--color-1: #0f1c24;
 	--color-2: #fff;
-	--color-3: cadetblue;
+	--color-3: hsl(182, 25%, 40%);
 	--color-4: #bdcfdb;
 
 	background: var(--color-1);
@@ -20,7 +20,7 @@ a {
 	color: inherit;
 
 	&:focus-visible {
-		outline: 0.125rem solid var(--color-3);
+		outline: 0.125rem solid var(--outline-color, var(--color-3));
 		outline-offset: 0.1875em;
 	}
 }

@@ -17,6 +17,8 @@
 }
 
 .SignIn {
+	--outline-color: var(--color-2);
+
 	background-color: hsl(from var(--color-1) h s 25%);
 	display: flex;
 	align-items: center;
