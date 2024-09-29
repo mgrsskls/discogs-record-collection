@@ -8,13 +8,18 @@
 				const records = document.querySelectorAll(".Records-item");
 				const checked = document.querySelector(":checked");
 
-				if (checked) {
-					renderGenre(checked.value);
-				}
-
 				document.querySelectorAll("input").forEach(input => {
 					input.addEventListener("change", ({ target }) => {
 						renderGenre(target.value);
+						const url = new URL(location);
+
+						if (target.value) {
+							url.searchParams.set("genre", target.value);
+						} else {
+							url.searchParams.delete("genre");
+						}
+
+						history.pushState({}, "", url);
 					});
 				});
 
@@ -29,6 +34,25 @@
 						}
 					}
 				}
+
+				function getGenreFromQuery() {
+					const urlParams = new URLSearchParams(window.location.search);
+
+					return urlParams.get("genre");
+				}
+
+				function onQueryChange() {
+					const genre = getGenreFromQuery();
+					const input = document.querySelector(`input[value="${genre || ''}"]`);
+					renderGenre(genre);
+
+					if (input) {
+						input.checked = true;
+					}
+				}
+
+				onQueryChange();
+				window.addEventListener("popstate", onQueryChange);
 			});
 		</script>
 
