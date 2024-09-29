@@ -12,6 +12,8 @@ export default async function (eleventyConfig) {
 
 	const { records, genres } = await data(fetchData);
 
+	eleventyConfig.addGlobalData("host", process.env.HOST);
+	eleventyConfig.addGlobalData("description", process.env.DESCRIPTION);
 	eleventyConfig.addGlobalData("records", records);
 	eleventyConfig.addGlobalData("genres", genres);
 

@@ -6,7 +6,11 @@
 		<title>Discogs Record Collection</title>
 		<link href="layout.css" rel="stylesheet" />
 		{% block head %}{% endblock %}
-		<meta name="description" content="Sign in to your Discogs account, get a simple overview of all your records and filter them by category." />
+		<meta name="description" content="{{ description|default("Grant access to your Discogs record collection and get a simple overview of all your records.") }}" />
+		<meta property="og:title" content="Discogs Record Collection" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="{{ host }}" />
+		<meta property="og:image" content="{{ host }}/screenshot.webp" />
 	</head>
 	<body>
 		{% block content %}{% endblock %}

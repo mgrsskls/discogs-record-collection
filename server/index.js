@@ -31,9 +31,9 @@ app.listen(port, () => {
 
 app.get("/", function (req, res) {
 	if (req.cookies.discogs_oauth_token) {
-		records(req, res, tokens);
+		records(req, res, tokens, host);
 	} else {
-		login(res);
+		login(res, host);
 	}
 });
 app.get("/sign-in", (req, res) => getToken(res, host, Discogs));
