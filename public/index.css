@@ -7,6 +7,15 @@
 	margin-inline: auto;
 	text-align: center;
 
+	img {
+		aspect-ratio: 1624 / 1056;
+		display: block;
+		inline-size: 100%;
+		max-inline-size: 32rem;
+		block-size: auto;
+		margin-inline: auto;
+	}
+
 	p:last-child {
 		margin-block-start: 3rem;
 
