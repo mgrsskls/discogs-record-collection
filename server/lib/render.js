@@ -1,6 +1,6 @@
 import disconnect from "disconnect";
 
-import data from "./data.js";
+import data from "../../lib/data.js";
 
 export const records = (req, res, tokens, host) => {
 	const Discogs = disconnect.Client;
@@ -16,13 +16,13 @@ export const records = (req, res, tokens, host) => {
 					err,
 				});
 			} else if (response) {
-				res.render(
-					"records.twig",
-					await data(fetchData, host, {
+				res.render("records.twig", {
+					...(await data(fetchData, host, {
 						username: response.username,
 						collection,
-					})
-				);
+					})),
+					render_back_button: true,
+				});
 			}
 		});
 	} catch (err) {

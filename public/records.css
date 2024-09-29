@@ -2,7 +2,8 @@ header {
 	background: var(--color-1);
 	border-block-end: 0.5rem solid var(--color-2);
 	color: var(--color-2);
-	padding: 1rem 0.5rem;
+	padding-inline: 0.5rem;
+	padding-block: 1rem;
 	position: sticky;
 	inset-block-start: 0;
 	z-index: 1;
@@ -12,6 +13,26 @@ header {
 	gap: 0.5rem 2rem;
 	justify-content: center;
 	align-items: center;
+
+	&:has(.Back) {
+		padding-inline: 3rem;
+	}
+}
+
+.Back {
+	position: absolute;
+	inset-inline-start: 0;
+	inset-block-start: 50%;
+	transform: translateY(-50%);
+}
+
+button {
+	appearance: none;
+	border: none;
+	background: none;
+	padding: 0.5rem;
+	color: inherit;
+	cursor: pointer;
 }
 
 h1 {

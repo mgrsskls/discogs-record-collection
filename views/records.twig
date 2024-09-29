@@ -1,6 +1,6 @@
 {% embed "layout.twig" %}
 	{% block head %}
-		<link rel="stylesheet" href="records.css">
+		<link rel="stylesheet" href="/records.css">
 	{% endblock %}
 	{% block content %}
 		<script>
@@ -33,9 +33,20 @@
 		</script>
 
 		<header>
-			<h1>{{ records|length }} records</h1>
+			{% if render_back_button %}
+				<form action="/logout" method="POST" class="Back">
+					<button aria-label="Back to homepage">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24" height="24">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/>
+						</svg>
+					</button>
+				</form>
+			{% endif %}
+			<h1>
+				{{ records|length }} records
+			</h1>
 			{% if genres is not empty %}
-				<form hidden>
+				<form hidden id="genres-form">
 					<fieldset>
 						<legend>Genre</legend>
 						<div class="Genres">
@@ -53,7 +64,7 @@
 					</fieldset>
 				</form>
 				<script>
-					document.querySelector("form").hidden = false;
+					document.querySelector("#genres-form").hidden = false;
 				</script>
 			{% endif %}
 		</header>
