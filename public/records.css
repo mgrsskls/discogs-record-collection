@@ -3,7 +3,7 @@ header {
 	border-block-end: 0.5rem solid var(--color-2);
 	color: var(--color-2);
 	padding-inline: 0.5rem;
-	padding-block: 1rem;
+	padding-block: 0.75rem;
 	position: sticky;
 	inset-block-start: 0;
 	z-index: 1;
@@ -61,23 +61,24 @@ legend {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 0.5rem;
+	gap: 0.25rem 0.5rem;
 	color: var(--color-4);
 }
 
 label {
 	padding-inline: 0.5em;
-}
+	padding-block: 0.25em;
 
-label:has(:checked) {
-	background: var(--color-3);
-	color: var(--color-2);
-	border-radius: 0.125rem;
-}
+	&:has(:checked) {
+		background: var(--color-3);
+		color: var(--color-2);
+		border-radius: 0.125rem;
+	}
 
-label:has(:focus-visible) {
-	outline: 0.125rem solid var(--color-2);
-	outline-offset: 0.125rem;
+	&:has(:focus-visible) {
+		outline: 0.125rem solid var(--color-2);
+		outline-offset: 0.125rem;
+	}
 }
 
 input {
@@ -157,6 +158,11 @@ footer {
 }
 
 @media (hover: hover) {
+	label:hover {
+		text-decoration: underline;
+		text-underline-offset: 0.15em;
+	}
+
 	.Records-list {
 		--min-size: 9rem;
 	}
