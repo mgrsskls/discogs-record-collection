@@ -5,9 +5,9 @@
 	"description": "Sign in to your Discogs account, get a simple overview of all your records and filter them by category",
 	"dependencies": {
 		"compression": "^1.7.4",
-		"cookie-parser": "^1.4.6",
+		"cookie-parser": "^1.4.7",
 		"disconnect": "^1.2.2",
-		"express": "^4.21.0",
+		"express": "^4.21.1",
 		"twig": "^1.17.1"
 	},
 	"engines": {
