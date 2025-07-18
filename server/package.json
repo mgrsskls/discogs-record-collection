@@ -4,7 +4,7 @@
 	"type": "module",
 	"description": "Sign in to your Discogs account, get a simple overview of all your records and filter them by category",
 	"dependencies": {
-		"compression": "^1.7.4",
+		"compression": "^1.8.1",
 		"cookie-parser": "^1.4.7",
 		"disconnect": "^1.2.2",
 		"express": "^4.21.2",
