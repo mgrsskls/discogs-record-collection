@@ -2,7 +2,7 @@
 	"author": "Michael Großklaus <mail@mgrossklaus.de> (https://www.mgrossklaus.de)",
 	"type": "module",
 	"devDependencies": {
-		"@eslint/js": "^9.34.0",
+		"@eslint/js": "^9.37.0",
 		"eslint": "^9.35.0",
 		"globals": "^16.4.0"
 	}
